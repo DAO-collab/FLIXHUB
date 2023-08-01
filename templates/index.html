@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FLIXHUB</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins:300,500&amp;display=swap'>
+  <style>
+    /* Define CSS variables */
+    :root {
+      --primary-color: rgb(25, 139, 253);
+      --secondary-color: grey;
+      --accent-color: #000;
+      --background-color: white;
+      --text-color: #000;
+    }
+
+    /* Apply basic styles to the document */
+    html, body {
+      height: 100%;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--text-color);
+      background: url('https://images3.alphacoders.com/124/1247106.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    /* Styles for the header */
+    h2 {
+      text-align: center;
+      margin-top: 40px;
+      color:white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Styles for the movie section */
+    .movie {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-top: 40px;
+    }
+
+    .search-form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #movie_name {
+      width: 60%; /* Adjust the width to your preference */
+      padding: 1em;
+      border-radius: 30px; /* Round the corners for a Google-like style */
+      text-align: center;
+      border: 1px solid var(--secondary-color);
+      font-size: 18px; /* Slightly larger font size for better visibility */
+      outline: none; /* Remove the outline when focused */
+    }
+
+    #submission_button {
+      width: 30%; /* Adjust the width to your preference */
+      padding: 1em;
+      margin-left: 10px; /* Add some space between the input and button */
+      border-radius: 30px; /* Round the corners for a Google-like style */
+      color: white;
+      background-color: var(--primary-color);
+      border-style: none;
+      cursor: pointer;
+      font-size: 18px; /* Slightly larger font size for better visibility */
+      outline: none; /* Remove the outline when focused */
+    }
+
+    #submission_button:hover {
+      background-color: #1a89e8;
+    }
+
+    /* Styles for the credits section */
+    .creds {
+      text-align: center;
+      margin-top: 20px;
+      color: var(--accent-color);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <h2>FLIXHUB Movie Recommendation System</h2>
+  
+  <!-- Movie section -->
+  <div class="movie">
+    <form class="search-form" action="{{ url_for('main') }}" method="POST">
+      <input type="text" id="movie_name" name="movie_name" placeholder="Search for movies" autocorrect="off" autocapitalize="off" required>
+      <input type="submit" id="submission_button" value="Search">
+    </form>
+  </div>
+  <!-- Scripts -->
+  <script src='https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js'></script>
+  <script src='https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js'></script>
+</body>
+</html>

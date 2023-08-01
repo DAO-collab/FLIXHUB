@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FLIXHUB</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins:300,500&amp;display=swap'>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <style>
+    /* Define CSS variables */
+    :root {
+      --primary-color: rgb(25, 139, 253);
+      --secondary-color: grey;
+      --accent-color: #000;
+      --background-color: #f9f9f9; /* Change background color here */
+      --text-color: #000;
+    }
+
+    /* Apply basic styles to the document */
+    html, body {
+      height: 100%;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--text-color);
+      background-color: var(--background-color);
+    }
+
+    /* Styles for different screen sizes */
+    @media (min-width: 32rem) {
+      body {
+        font-size: 102.5%;
+      }
+    }
+
+    /* Other media queries... */
+
+    a {
+      text-decoration: none;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+
+    figure {
+      max-width: 100%;
+      height: auto;
+      margin: 0;
+    }
+
+    /* Styles for the movie section */
+    .movie {
+      margin-right: 5vh;
+      margin-left: 5vh;
+      display: block;
+      background-color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    button {
+      margin-left: 10vh;
+      margin-top: 3vh;
+      display: inline-block;
+      padding: 10px 30px;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #1a89e8;
+    }
+
+    /* Styles for the table */
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+      border: 1px solid var(--secondary-color);
+    }
+
+    th, td {
+      border: 1px solid var(--secondary-color);
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background-color: var(--primary-color);
+      color: white;
+    }
+
+    td a {
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+
+    td a:hover {
+      text-decoration: underline;
+    }
+
+    @media screen and (max-width: 600px) {
+      .movie {
+        padding-top: 12vh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Movie section -->
+  <div class="movie">
+    <h2><u>Movie Recommendations for "{{ search_name }}"</u></h2>
+    <table class="movie_table" align="center">
+      <tr>
+        <th>Movie Title</th>
+        <th>Release Date</th>
+        <th>Similarity Score</th>
+      </tr>
+      <tbody class="table_body">
+        <!-- Replace the following rows with your dynamic data from the server -->
+        {% for i in range(10) %}
+        <tr>
+          <td><a href="{{ movie_homepage[i] }}" target="_blank">{{ movie_names[i] }}</a></td>
+          <td>{{ movie_releaseDate[i] }}</td>
+          <td>{{ movie_simScore[i][1] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <br>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src='https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js'></script>
+  <script src='https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js'></script>
+</body>
+</html>
